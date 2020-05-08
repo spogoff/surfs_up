@@ -29,12 +29,12 @@ app = Flask(__name__)
 def welcome():
     return(
     '''
-    Welcome to the Climate Analysis API!
-    Available Routes:
-    /api/v1.0/precipitation
-    /api/v1.0/stations
-    /api/v1.0/tobs
-    /api/v1.0/temp/start/end
+    Welcome to the Climate Analysis API! <br>
+    Available Routes: <br>
+    /api/v1.0/precipitation <br>
+    /api/v1.0/stations <br>
+    /api/v1.0/tobs <br>
+    /api/v1.0/temp/start/end <br>
     ''')
 
 #define the precipation route
@@ -97,3 +97,4 @@ def stats(start=None, end=None):
     results = session.query(*sel).filter(Measurement.date >= start).filter(Measurement.date <= end).all()
     temps = list(np.ravel(results))
     return jsonify(temps)
+
